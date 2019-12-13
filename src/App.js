@@ -44,21 +44,8 @@ function reducer(state, action) {
 
 			if (state.sidebarOpen !== action.sidebarOpen)
 				nextState.sidebarOpen = action.sidebarOpen;
-
 			break;
 
-		case "SET_AND_TOGGLE":
-			if (
-				state.sidebarPanelId !== action.sidebarPanelId &&
-				state.sidebarOpen !== action.sidebarOpen
-			) {
-				nextState = {
-					...state,
-					sidebarPanelId: action.sidebarPanelId,
-					sidebarOpen: action.sidebarOpen
-				};
-			}
-			break;
 		default:
 			break;
 	}
@@ -77,7 +64,7 @@ function App() {
 
 		if (panel) {
 			dispatch({
-				type: "SET_AND_TOGGLE",
+				type: "TOGGLE",
 				sidebarPanelId: panel.sidebarPanelId,
 				sidebarOpen: true
 			});
